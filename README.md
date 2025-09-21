@@ -19,7 +19,7 @@ This site is where I share my projects, experiments, and professional journey.
 - `/images` — Portfolio images & thumbnails  
 - `/projects` — Project pages  
 - `/docs` — Resume and supporting documents  
-- `/wildflower` — find it if you can from the main page
+- `/wildflower` — A hidden page for those curious enough to look
 
 ## 🚀 Live Site
 Check it out here:  
