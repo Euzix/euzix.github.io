@@ -138,6 +138,24 @@ body{
 .card-title{ margin-bottom:.35rem; }
 .card-text{ color: var(--muted); }
 
+/* Hover effect for project cards */
+.project-card .card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  cursor: pointer;
+}
+
+.project-card:hover .card,
+.project-card:focus-within .card {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(12, 41, 80, 0.18);
+  border-color: var(--brand);
+  background: #ffffff;
+}
+
 /* ==============================
    Skills
    ============================== */

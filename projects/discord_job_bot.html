@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discord Job Bot (Python Automation) | Manel Capangpangan • Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Only needed if you embed ArcGIS maps -->
+  <script type="module" src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js"></script>
+
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    /* Hero + map styles */
+    .project-hero{
+      background:
+        radial-gradient(80% 60% at 50% 0%, rgba(0,0,0,.06), transparent),
+        linear-gradient(180deg, rgba(0,0,0,.02), transparent);
+      border-radius: 1.25rem;
+    }
+    .meta-badge{font-size:.85rem;}
+
+    .section-title{
+      font-weight:700;
+      margin-bottom:1rem;
+    }
+
+    .map-hero{
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 14px rgba(0,0,0,.08);
+    }
+    .map-hero .ratio{--bs-aspect-ratio:66%;}
+    .map-hero arcgis-embedded-map,
+    .map-hero img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .img-caption{
+      font-size:.9rem;
+      color:#6c757d;
+    }
+
+    /* Centered body layout */
+    .project-body {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-block {
+      padding: 2.5rem 0;
+      border-top: 1px solid #e3eaf4;
+    }
+    .section-block:first-of-type {
+      border-top: none;
+    }
+
+    /* Meta cards in Summary */
+    .meta-card {
+      padding: 1rem 1.25rem;
+      border-radius: .75rem;
+      background: #ffffff;
+      border: 1px solid #e3eaf4;
+      font-size: .95rem;
+    }
+
+    /* Side dot navigation */
+    .section-dots {
+      position: fixed;
+      top: 50%;
+      right: 2.5rem;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      z-index: 1040;
+    }
+
+    /* Base dot shape */
+    .section-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #c7d7f7;
+      background: #f3f6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      padding: 0;
+    }
+
+    .section-dot:hover {
+      transform: scale(1.15);
+    }
+
+    /* Active state */
+    .section-dot.is-active {
+      background: #0d6efd;
+      border-color: #0d6efd;
+      transform: scale(1.2);
+    }
+
+    /* Top heart dot */
+    .section-dot--top i {
+      font-size: 0.55rem;
+      color: #c7d7f7;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .section-dot--top.is-active i {
+      color: #ffffff;
+    }
+
+    .section-dot:focus-visible {
+      outline: 2px solid #0d6efd;
+      outline-offset: 4px;
+    }
+
+    /* Hide dots on small screens */
+    @media (max-width: 991.98px) {
+      .section-dots {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top navbar -->
+  <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Manel Capangpangan</a>
+      <div class="ms-auto small">
+        <a class="text-decoration-none" href="../index.html#projects">
+          <i class="bi bi-arrow-left-short"></i> Back to Projects
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <!-- Side dot nav -->
+    <nav class="section-dots d-none d-lg-flex" aria-label="Section navigation">
+      <!-- top-of-page dot -->
+      <button class="section-dot section-dot--top is-active" data-target="#top" aria-label="Top of page">
+        <i class="bi bi-heart-fill"></i>
+      </button>
+
+      <!-- section dots -->
+      <button class="section-dot" data-target="#summary" aria-label="Summary"></button>
+      <button class="section-dot" data-target="#objective" aria-label="Objective"></button>
+      <button class="section-dot" data-target="#data" aria-label="Data"></button>
+      <button class="section-dot" data-target="#method" aria-label="Method"></button>
+      <button class="section-dot" data-target="#gallery" aria-label="Gallery"></button>
+      <button class="section-dot" data-target="#links" aria-label="Links"></button>
+    </nav>
+
+    <!-- HERO -->
+    <header id="top" class="project-hero p-4 p-md-5 shadow-sm mb-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-semibold mb-3">Discord Job Bot (Python Automation)</h1>
+          <p class="lead mb-3">
+            A custom Python Discord bot that automates GIS job searching by pulling data from APIs and scraping sites that do not provide an API, then posting new opportunities directly into a Discord channel. I built this to help myself and my classmates keep up with new openings without refreshing job boards all day.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-1">
+            <span class="badge text-bg-primary meta-badge">Python</span>
+            <span class="badge text-bg-light border meta-badge">
+              <i class="bi bi-calendar2"></i> Personal Project 2025
+            </span>
+            <span class="badge text-bg-light border meta-badge">
+              <i class="bi bi-tools"></i> discord.py, Requests, SQLite
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <figure class="mb-0 map-hero">
+            <div class="ratio">
+              <!-- Static image thumbnail -->
+              <img src="./project_images/Screenshot 2025-12-05 224701.png" alt="Screenshot of the Discord Job Bot posting jobs in a channel">
+            </div>
+          </figure>
+          <figcaption class="img-caption mt-2">
+            Screenshot of the bot posting new GIS job listings into a dedicated Discord channel.
+          </figcaption>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="project-body">
+      <section id="summary" class="section-block" data-section="summary">
+        <h2 class="section-title">Summary</h2>
+        <p>
+          This project uses Python, the Discord API, and scheduled tasks to automatically fetch newly posted GIS related jobs from supported job APIs and from selected job sites that do not expose an API. The bot posts each new listing into a Discord channel with the job title, location, salary when available, and a direct link to the application page. The goal is to reduce the time spent manually checking job boards by routing the most relevant openings into one place.
+        </p>
+        <p>
+          The bot is designed to be flexible and easy to extend. New APIs, custom search filters, or scraped sites can be added without changing the core posting logic. The project also includes basic logging and a small SQLite database so that duplicate listings are not posted again, which keeps the channel clean and readable. The primary audience for this bot is my GIS classmates and me, but the structure makes it easy for other student groups to reuse.
+        </p>
+        <div class="row g-3 mt-3">
+          <div class="col-md-4">
+            <div class="meta-card h-100">
+              <div class="small text-muted">Time</div>
+              <div>Ongoing personal project started in 2025</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="meta-card h-100">
+              <div class="small text-muted">Role</div>
+              <div>Solo developer responsible for design, coding, testing, and deployment</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="meta-card h-100">
+              <div class="small text-muted">Deliverable</div>
+              <div>Production ready Discord bot with scheduled job posting and a public GitHub repository</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="objective" class="section-block" data-section="objective">
+        <h2 class="section-title">Objective</h2>
+        <p>
+          Build an automated Discord bot that continuously searches for new GIS related job postings, including from sites that do not provide an API, and deliver them in a clean format to a shared Discord channel so that my classmates and I can discover opportunities more easily.
+        </p>
+      </section>
+
+      <section id="data" class="section-block" data-section="data">
+        <h2 class="section-title">Data</h2>
+        <ul class="mb-0">
+          <li><strong>Job APIs:</strong> USAJobs and other job platforms that expose public or key based APIs for job search queries.</li>
+          <li><strong>Scraped job sites:</strong> Selected career pages and job boards that do not provide APIs, accessed through HTTP requests and HTML parsing.</li>
+          <li><strong>Query focus:</strong> GIS, remote sensing, geospatial analyst, cartography, and related job titles and keywords.</li>
+          <li><strong>Time frame:</strong> The most recent postings returned by each source, fetched on a regular schedule so only fresh jobs are shared.</li>
+          <li><strong>Storage:</strong> A small SQLite database that tracks previously posted job IDs to prevent duplicates.</li>
+        </ul>
+      </section>
+
+      <section id="method" class="section-block" data-section="method">
+        <h2 class="section-title">Method</h2>
+        <ol class="mb-0">
+          <li>Configure environment variables for Discord tokens, API keys, channel IDs, and search parameters using a .env file.</li>
+          <li>Use the Requests library to call one or more job APIs with filters for location, keywords, and posting date.</li>
+          <li>For selected sites that do not provide an API, send HTTP requests and parse the HTML to extract job cards, titles, locations, and links.</li>
+          <li>Parse responses from both APIs and scraped pages, normalize the fields, and check each job against the SQLite database to skip duplicates.</li>
+          <li>Format approved jobs into clear Discord messages that include the title, organization, location, pay information when available, and a direct link.</li>
+          <li>Use discord.py to post the messages into the chosen channel on a schedule, with logging and basic error handling for reliability.</li>
+        </ol>
+      </section>
+
+      <section id="gallery" class="section-block" data-section="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="map-hero mb-3">
+          <div class="ratio">
+            <img src="../assets/discord-job-bot-gallery-1.jpg" alt="Discord Job Bot console output and channel messages">
+          </div>
+        </div>
+        <p class="img-caption">
+          Example of the bot running in the background and posting formatted GIS job listings into a Discord server for my classmates and me to review.
+        </p>
+      </section>
+
+      <section id="links" class="section-block pb-0" data-section="links">
+        <h2 class="section-title">Links</h2>
+        <ul class="mb-0">
+          <li><a href="https://github.com/USERNAME/discord-job-bot" target="_blank" rel="noopener">GitHub repository for the Discord Job Bot</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Documentation and configuration notes (coming soon)</a></li>
+        </ul>
+      </section>
+
+      <!-- Bottom nav: update hrefs for each project -->
+      <nav class="d-flex justify-content-between align-items-center mt-4 pt-4 border-top">
+        <a class="btn btn-outline-secondary" href="../projects/PREVIOUS-PROJECT.html">
+          <i class="bi bi-arrow-left"></i> Previous
+        </a>
+        <a class="btn btn-primary" href="../index.html#projects">All Projects</a>
+        <a class="btn btn-outline-secondary" href="../projects/NEXT-PROJECT.html">
+          Next <i class="bi bi-arrow-right"></i>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="border-top py-4 small">
+    <div class="container d-flex justify-content-between">
+      <div>© <span id="year"></span> Manel Capangpangan</div>
+      <div class="text-muted">Built with GIS ♥</div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dot click -> smooth scroll
+    const dots = document.querySelectorAll('.section-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const targetSelector = dot.dataset.target;
+        if (targetSelector === '#top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const target = document.querySelector(targetSelector);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Sections to track: hero (top) plus content sections
+    const sections = [
+      document.getElementById('top'),
+      ...document.querySelectorAll('.section-block[id]')
+    ].filter(Boolean);
+
+    // Scroll spy: choose the most visible section
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting);
+      if (!visible.length) return;
+
+      const mostVisible = visible.reduce((max, entry) =>
+        entry.intersectionRatio > max.intersectionRatio ? entry : max,
+        visible[0]
+      );
+
+      const id = '#' + mostVisible.target.id;
+      dots.forEach(dot => {
+        dot.classList.toggle('is-active', dot.dataset.target === id);
+      });
+    }, {
+      root: null,
+      threshold: [0.2, 0.4, 0.6, 0.8],
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
