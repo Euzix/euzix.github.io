@@ -145,30 +145,47 @@
 
     /* Gallery grid */
     .gallery-grid {
-        margin-top: 1.5rem;
+      margin-top: 1.5rem;
     }
     
     .gallery-card {
-        background: #ffffff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 14px rgba(0,0,0,.05);
-        padding: 0.75rem 0.75rem 0;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      padding: 0.6rem 0.6rem 0;
+      transition: transform .18s ease, box-shadow .18s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
+    
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+    }
+    
     .gallery-card img {
-        display: block;
-        width: 100%;
-        height: auto;              /* let the image decide its own height */
-        object-fit: contain;       /* show the whole map, no cropping */
-        background-color: #f8f9fa; /* light frame behind it */
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;        /* show the whole map */
+      background-color: #f8f9fa;  /* light frame behind it */
+      border-radius: 10px;
+      cursor: zoom-in;            /* hint that it opens */
     }
-
-
+    
     .gallery-card figcaption {
-        padding: .75rem 1rem .9rem;
-        font-size: .9rem;
-        color: #6c757d;
-    }
+      padding: .75rem 1rem 1rem;
+      font-size: .9rem;
+      color: #6c757d;
+      flex-grow: 1;
+  }
+
+  /* Modal image */
+  .modal-dark-bg {
+      background-color: #000000;
+  }
   </style>
 </head>
 <body>
@@ -352,76 +369,77 @@
       </section>
 
       <section id="gallery" class="section-block" data-section="gallery">
-        <h2 class="section-title">Gallery</h2>
-        
-        <div class="row g-3 gallery-grid">
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/Composite_Map.png"
-                    alt="Composite food access RiskScore map with drive-time polygons and food outlets">
-                    <figcaption>Composite Food Access Risk map with drive-time polygons and food outlets.</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/Poverty_Map.png"
-                    alt="Poverty rate by census tract in Bolivar and Washington Counties">
-                    <figcaption>Poverty rate by census tract highlighting high-poverty communities.</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/Income_Map.png"
-                    alt="Median household income map">
-                    <figcaption>Median household income map showing lower-income areas in the Delta.</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/65+_Map.png"
-                    alt="Population age 65 and older by tract">
-                    <figcaption>Population age 65+ by tract, emphasizing older communities.</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/NoVehicle_Map.png"
-                    alt="Households without a vehicle by tract">
-                    <figcaption>Households without a vehicle layered with the road network.</figcaption>
-                </figure>
-            </div>
-            
-            <div class="col-12 col-md-6 col-lg-4">
-                <figure class="gallery-card">
-                    <img src="project_images/SA_10_15.png"
-                    alt="10- and 15-minute drive-time service areas around food outlets">
-                    <figcaption>10- and 15-minute drive-time service areas around food outlets.</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
+  <h2 class="section-title">Gallery</h2>
+  
+  <div class="row g-3 gallery-grid">
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/Composite_Map.png"
+                alt="Composite food access RiskScore map with drive-time polygons and food outlets">
+              <figcaption>Composite Food Access Risk map with drive-time polygons and food outlets.</figcaption>
+          </figure>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/Poverty_Map.png"
+                alt="Poverty rate by census tract in Bolivar and Washington Counties">
+              <figcaption>Poverty rate by census tract highlighting high-poverty communities.</figcaption>
+          </figure>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/Income_Map.png"
+                alt="Median household income map">
+              <figcaption>Median household income map showing lower-income areas in the Delta.</figcaption>
+          </figure>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/65+_Map.png"
+                alt="Population age 65 and older by tract">
+              <figcaption>Population age 65+ by tract, emphasizing older communities.</figcaption>
+          </figure>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/NoVehicle_Map.png"
+                alt="Households without a vehicle by tract">
+              <figcaption>Households without a vehicle layered with the road network.</figcaption>
+          </figure>
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-4">
+          <figure class="gallery-card">
+              <img src="project_images/SA_10_15.png"
+                alt="10- and 15-minute drive-time service areas around food outlets">
+              <figcaption>10- and 15-minute drive-time service areas around food outlets.</figcaption>
+          </figure>
+      </div>
+  </div>
+</section>
+
 
 
       <section id="links" class="section-block pb-0" data-section="links">
         <h2 class="section-title">Links</h2>
         <ul class="mb-0">
           <li>
-            <a href="https://experience.arcgis.com" target="_blank" rel="noopener">
+            <a href="https://experience.arcgis.com/experience/849b42d2e3174867b35f948127745620" target="_blank" rel="noopener">
               Delta Food Access Explorer (ArcGIS Experience Builder app)
             </a>
           </li>
           <li>
-            <a href="../assets/Food_Access_and_Vulnerable_Populations_FinalMapSeries.pdf"
+            <a href="./project_docs/Food Access and Vulnerable Populations_FinalPowerpoint.pdf"
                target="_blank" rel="noopener">
-              PDF map series (poverty, income, age 65+, no vehicle, drive-time, composite risk)
+              Food Access and Vulnerable Populations PowerPoint
             </a>
           </li>
           <li>
-            <a href="../assets/Food_Access_and_Vulnerable_Populations_CapstonePaper.pdf"
+            <a href="./project_docs/FinalPaper_CapstoneOne.pdf"
                target="_blank" rel="noopener">
               Capstone paper: Food Access and Vulnerable Populations in Bolivar &amp; Washington Counties
             </a>
@@ -440,6 +458,22 @@
         </a>
       </nav>
     </div>
+
+      <!-- Gallery lightbox modal -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content modal-dark-bg border-0">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <img src="" alt="" class="img-fluid w-100 modal-img">
+          <p class="text-light small mt-2 mb-2 modal-caption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   </main>
 
   <footer class="border-top py-4 small">
@@ -498,6 +532,31 @@
     sections.forEach(section => observer.observe(section));
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // --- Gallery lightbox (runs after Bootstrap + DOM are ready) ---
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('galleryModal');
+    if (!modalElement) return;
+
+    const modalImg = modalElement.querySelector('.modal-img');
+    const modalCaption = modalElement.querySelector('.modal-caption');
+    const galleryModal = new bootstrap.Modal(modalElement);
+
+    document.querySelectorAll('.gallery-card img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+
+        const captionEl = img.closest('figure').querySelector('figcaption');
+        modalCaption.textContent = captionEl ? captionEl.textContent : img.alt;
+
+        galleryModal.show();
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

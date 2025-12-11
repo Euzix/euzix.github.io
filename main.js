@@ -70,3 +70,19 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   applyFilter(activeBtn ? activeBtn.dataset.filter : 'all');
 })();
 
+/******************************
+ * Make entire project card clickable
+ ******************************/
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".project-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // If the user clicked a button/link inside the card, don’t override.
+      if (e.target.closest("a, button")) return;
+
+      const link = card.querySelector(".btn-primary");
+      if (link && link.href) {
+        window.location.href = link.href;
+      }
+    });
+  });
+});

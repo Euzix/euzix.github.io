@@ -6,27 +6,59 @@
   <title>Manel Capangpangan • Portfolio</title>
 
   <!-- CSS libs -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+
   <!-- Site styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
+<body>
   <!-- ========== Nav ========== -->
   <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="#home">Manel Capangpangan</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <a class="btn btn-resume nav-link text-white" href="docs/Manel_Resume.pdf" download> Download Resume</a>
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="btn btn-resume nav-link text-white"
+              href="docs/Manel_Resume.pdf"
+              download
+            >
+              Download Resume
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -37,11 +69,13 @@
     <div class="container text-center">
       <p class="eyebrow">GIS • Remote Sensing • Data Visualization</p>
       <h1 class="display-5 fw-bold">Hi, I’m Manel.</h1>
-      <!-- typed text handled in main.js -->
       <p class="lead mb-4">
-        <span id="typed"></span><span class="cursor" aria-hidden="true">|</span>
+        <span id="typed"></span
+        ><span class="cursor" aria-hidden="true">|</span>
       </p>
-      <a class="btn btn-primary" href="#projects">Explore <i class="bi bi-arrow-down ms-1"></i></a>
+      <a class="btn btn-primary" href="#projects">
+        Explore <i class="bi bi-arrow-down ms-1"></i>
+      </a>
     </div>
   </header>
 
@@ -50,7 +84,9 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Geospatial projects showcasing my work and learning.</p>
+        <p class="section-subtitle">
+          Geospatial projects showcasing my work and learning.
+        </p>
       </div>
 
       <!-- filters -->
@@ -59,50 +95,95 @@
         <button class="btn btn-filter" data-filter="remote">Remote Sensing</button>
         <button class="btn btn-filter" data-filter="gis-analysis">GIS Analysis</button>
         <button class="btn btn-filter" data-filter="data-science">Data Science</button>
-        <button class="btn btn-filter" data-filter="web">Web Mapping & Viz</button>
+        <button class="btn btn-filter" data-filter="web">Web Mapping &amp; Viz</button>
         <button class="btn btn-filter" data-filter="python">Python Tools</button>
         <button class="btn btn-filter" data-filter="school">School Work</button>
       </div>
 
+      <!-- PROJECT GRID: every project card lives inside this row -->
       <div class="row g-4">
+
+        <!-- Food access (FIRST card) -->
+        <div class="col-md-6 col-lg-4 project-card" data-category="gis-analysis web school">
+          <div class="card h-100 border-0 shadow-sm">
+            <img
+              src="images/Composite_Map.png"
+              class="card-img-top"
+              alt="Composite food access risk map preview"
+            />
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title mb-2">Food Access &amp; Vulnerable Populations</h5>
+              <p class="text-secondary small mb-3">
+                Mapping composite food access risk in Bolivar and Washington
+                Counties, Mississippi by combining drive-time accessibility with
+                demographic vulnerability.
+              </p>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/delta_food_access.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jane Austen -->
         <div class="col-md-6 col-lg-4 project-card" data-category="school web">
           <div class="card h-100 border-0 shadow-sm">
-            <img src="images/JaneAusten_Preview.PNG" class="card-img-top" alt="Jane Austen’s England preview">
+            <img
+              src="images/JaneAusten_Preview.PNG"
+              class="card-img-top"
+              alt="Jane Austen’s England preview"
+            />
             <div class="card-body d-flex flex-column text-center">
               <h5 class="card-title mb-2">Jane Austen’s England</h5>
               <p class="text-secondary small mb-3">
-                Exploring real and fictional locations in Austen’s novels through maps and geospatial storytelling.
+                Exploring real and fictional locations in Austen’s novels through
+                maps and geospatial storytelling.
               </p>
-              <a href="projects/jane_austen.html" class="btn btn-sm btn-primary mt-auto">View Project</a>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/jane_austen.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 project-card" data-category="gis-analysis web school">
-          <div class="card h-100 border-0 shadow-sm">
-            <img src="images/Composite_Map.png" class="card-img-top" alt="Composite Map preview">
-            <div class="card-body d-flex flex-column text-center">
-              <h5 class="card-title mb-2">Food Access &amp; Vulnerable Populations</h5>
-              <p class="text-secondary small mb-3">Mapping composite food access risk in Bolivar and Washington Counties, Mississippi by combining drive-time accessibility with demographic vulnerability.</p>
-              <a class="btn btn-sm btn-primary mt-auto" href="#" target="_blank" rel="noopener">View</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- template for future projects (copy/paste) -->
+        <!-- TEMPLATE for future projects
+             To add a new one at the END, paste another block like this below.
+             To add one at the BEGINNING, paste it ABOVE the Food Access card. -->
         <!--
         <div class="col-md-6 col-lg-4 project-card" data-category="gis-analysis">
           <div class="card h-100 border-0 shadow-sm">
-            <img src="images/your-image.jpg" class="card-img-top" alt="Your Project Title">
+            <img
+              src="images/your-image.jpg"
+              class="card-img-top"
+              alt="Your Project Title"
+            />
             <div class="card-body d-flex flex-column text-center">
               <h5 class="card-title mb-2">Your Project Title</h5>
               <p class="text-secondary small mb-3">One-sentence description.</p>
-              <a class="btn btn-sm btn-primary mt-auto" href="#" target="_blank" rel="noopener">View</a>
+              <a
+                class="btn btn-sm btn-primary mt-auto"
+                href="projects/your_project.html"
+                target="_blank"
+                rel="noopener"
+              >
+                View Project
+              </a>
             </div>
           </div>
         </div>
         -->
-      </div>
+
+      </div><!-- /row g-4 -->
     </div>
   </section>
 
@@ -111,18 +192,34 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Tools & technologies I use regularly.</p>
+        <p class="section-subtitle">Tools &amp; technologies I use regularly.</p>
       </div>
 
       <div class="row g-3">
-        <div class="col-6 col-md-3"><div class="skill">ArcGIS Pro</div></div>
-        <div class="col-6 col-md-3"><div class="skill">QGIS</div></div>
-        <div class="col-6 col-md-3"><div class="skill">Python (geopandas, rasterio)</div></div>
-        <div class="col-6 col-md-3"><div class="skill">SQL</div></div>
-        <div class="col-6 col-md-3"><div class="skill">Remote Sensing</div></div>
-        <div class="col-6 col-md-3"><div class="skill">ArcGIS Online / Exp. Builder</div></div>
-        <div class="col-6 col-md-3"><div class="skill">Cartography & Viz</div></div>
-        <div class="col-6 col-md-3"><div class="skill">HTML/CSS</div></div>
+        <div class="col-6 col-md-3">
+          <div class="skill">ArcGIS Pro</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">QGIS</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Python (geopandas, rasterio)</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">SQL</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Remote Sensing</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">ArcGIS Online / Exp. Builder</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">Cartography &amp; Viz</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="skill">HTML/CSS</div>
+        </div>
       </div>
     </div>
   </section>
@@ -132,18 +229,37 @@
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-md-5 text-center">
-          <img src="images/manel_portrait2.jpg" alt="Portrait of Manel Capangpangan" class="portrait-img">
+          <img
+            src="images/manel_portrait2.jpg"
+            alt="Portrait of Manel Capangpangan"
+            class="portrait-img"
+          />
         </div>
         <div class="col-md-7">
           <h2 class="section-title">About Me</h2>
           <p class="mb-3">
-            I first discovered GIS at Delta State University, but my motivation started long before that. Growing up, I watched my dad serve as a Disaster Risk Reduction Management Officer in the Philippines, and I wanted to find ways to contribute to the kind of work he was doing by helping communities prepare for and respond to challenges. GIS became the tool that brought that vision to life.
+            I first discovered GIS at Delta State University, but my motivation
+            started long before that. Growing up, I watched my dad serve as a
+            Disaster Risk Reduction Management Officer in the Philippines, and I
+            wanted to find ways to contribute to the kind of work he was doing by
+            helping communities prepare for and respond to challenges. GIS became
+            the tool that brought that vision to life.
+          </p>
           <p>
-            <p> Since then, I’ve developed skills in Python, ArcGIS, remote sensing, and cartographic visualization, applying them to projects like disaster response simulations and community-focused mapping in the Mississippi Delta. What excites me most is using GIS to turn raw data into clear insights and practical solutions that make an impact on people’s lives. I’m eager to keep learning and to apply these skills in professional settings where geospatial work supports communities directly.
-            </p>
-          <p class="text-secondary small">
-            Relevant courses: GIS Programming • Remote Sensing • Cartography & Visualization • Case Studies.<br>
-            Interests: geospatial data science, disaster response, and community mapping.
+            Since then, I’ve developed skills in Python, ArcGIS, remote sensing,
+            and cartographic visualization, applying them to projects like
+            disaster response simulations and community-focused mapping in the
+            Mississippi Delta. What excites me most is using GIS to turn raw data
+            into clear insights and practical solutions that make an impact on
+            people’s lives. I’m eager to keep learning and to apply these skills
+            in professional settings where geospatial work supports communities
+            directly.
+          </p>
+          <p class="text-secondary small mb-0">
+            Relevant courses: GIS Programming • Remote Sensing • Cartography &amp;
+            Visualization • Case Studies.<br />
+            Interests: geospatial data science, disaster response, and community
+            mapping.
           </p>
         </div>
       </div>
@@ -152,53 +268,82 @@
 
   <!-- ========== Contact / Footer ========== -->
   <footer id="contact" class="footer">
-  <div class="container text-center">
-    <h2 class="mb-3">Let’s Connect</h2>
-    <p class="mb-4">
-      <a href="mailto:manelmcapangpangan@gmail.com">
-        manelmcapangpangan@gmail.com
-      </a> • 
-
-      <!-- Clickable Phone -->
-      <a href="tel:+16625451507">
-        +1 662 545 1507
-      </a> • 
-
-      <!-- Clickable School Email -->
-      <a href="mailto:mcapangp@okramail.deltastate.edu">
-        mcapangp@okramail.deltastate.edu
-      </a>
-    </p>
-    <div class="d-flex justify-content-center gap-3 fs-4 mb-4">
-      <a class="text-body" href="https://github.com/Euzix" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-        <i class="bi bi-github"></i>
-      </a>
-      <a class="text-body" href="https://www.linkedin.com/in/manel-capangpangan/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i>
-      </a>
-    </div>
-
-    <p class="text-secondary small mb-0">
-       © <span id="year"></span> Manel Capangpangan
-       <a class="easter"
-       href="wildflower/wildflower.html"
-       aria-label="Wildflower"
-       data-tip="to the fields">✿</a>
+    <div class="container text-center">
+      <h2 class="mb-3">Let’s Connect</h2>
+      <p class="mb-4">
+        <a href="mailto:manelmcapangpangan@gmail.com">
+          manelmcapangpangan@gmail.com
+        </a>
+        •
+        <a href="tel:+16625451507">
+          +1 662 545 1507
+        </a>
+        •
+        <a href="mailto:mcapangp@okramail.deltastate.edu">
+          mcapangp@okramail.deltastate.edu
+        </a>
       </p>
-      
-      <p class="hero-credit text-center mb-0">
-      Photo courtesy of
-      <a href="https://unsplash.com/@clevelandart" target="_blank" rel="noopener">The Cleveland Museum of Art</a>
-      on
-      <a href="https://unsplash.com/photos/qQlTPeEygtY" target="_blank" rel="noopener">Unsplash</a>
-      for the original image from which my cover art is derived.
-    </p>
-  </div>
-</footer>
 
+      <div class="d-flex justify-content-center gap-3 fs-4 mb-4">
+        <a
+          class="text-body"
+          href="https://github.com/Euzix"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-github"></i>
+        </a>
+        <a
+          class="text-body"
+          href="https://www.linkedin.com/in/manel-capangpangan/"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <p class="text-secondary small mb-0">
+        © <span id="year"></span> Manel Capangpangan
+        <a
+          class="easter"
+          href="wildflower/wildflower.html"
+          aria-label="Wildflower"
+          data-tip="to the fields"
+        >
+          ✿
+        </a>
+      </p>
+
+      <p class="hero-credit text-center mb-0">
+        Photo courtesy of
+        <a
+          href="https://unsplash.com/@clevelandart"
+          target="_blank"
+          rel="noopener"
+        >
+          The Cleveland Museum of Art
+        </a>
+        on
+        <a
+          href="https://unsplash.com/photos/qQlTPeEygtY"
+          target="_blank"
+          rel="noopener"
+        >
+          Unsplash
+        </a>
+        for the original image from which my cover art is derived.
+      </p>
+    </div>
+  </footer>
 
   <!-- JS libs + site script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
